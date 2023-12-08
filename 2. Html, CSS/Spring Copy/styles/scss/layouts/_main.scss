@@ -1,0 +1,55 @@
+@import "../abstaracts/variables";
+@import "../abstaracts/mixins";
+@import "../fonts/metropolis";
+@import "../fonts/open-sans";
+.main-projects{
+    line-height: 1.7rem;
+    .main-header{
+        margin: 0 auto;
+        position: relative;
+        width: auto;
+        padding: 0 2rem;
+        margin-bottom: 3rem;
+        margin-top: 3rem;
+        max-width: 960px;
+        .main-header-container{
+            align-items: stretch;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .main-header-h{
+                padding: 1rem 0;
+                font-size: 3.5rem;
+                margin-top: 40px;
+                font-family: Metropolis
+            }
+            .main-header-desc{
+                font-size: 1.5rem;
+                font-weight: 200;
+                line-height: 2.2rem;
+                margin-top: 20px;
+                max-width: 960px;
+                font-family: 'Open Sans',sans-serif;
+            }
+        }
+    }
+    .projects{
+        background-color: $light-grey;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        
+        .projects-container{
+            @media screen and (max-width: 1200px){
+                max-width: 960px;
+            }
+            max-width: 1152px;
+            @include container-mg;
+            .projects-list{
+                display: flex;
+                margin: 0 auto;
+                 max-width: 82.5%;
+                 flex-wrap: wrap;
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@import "../abstaracts/variables";
+@import "../abstaracts/fonts";
+.header-container{
+    min-height: 3.25rem;
+    .top-nav-mobile{
+        position: fixed;
+        z-index: 998;
+        background-color: white;
+        width: 100%;
+        @media  screen and (min-width: 900px) {
+            display: none;
+        }
+        &::after{
+            display: block;
+            content: "";
+        
+            height: 1px;
+            background-color: $light-grey;
+        }
+        .nav-mobile-container{
+            display: flex;
+            flex-direction: row;
+            .logo-container{
+                display: inline-block;
+                line-height: 1.5;
+                padding: 0.5rem 0.75rem;
+                height: 52px;
+                position: relative;
+                img{
+                    width: 200px;
+                }
+            }
+        }
+        .nav-burger-icon-container{
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 52px;
+            height: 52px;
+            img{
+                width: 32px;
+                height: 32px;
+            }
+            &:hover{
+                background-color: #ebf2f2;
+            }
+        }
+    }
+
+}
