@@ -1105,7 +1105,8 @@ select {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: scroll;
   background-color: #191e1e;
 }
 .mobile-menu .close-mobile-menu {
@@ -1142,6 +1143,7 @@ select {
   font-size: 2rem;
   position: relative;
   color: white;
+  --arrow-rotate: -45deg;
 }
 .mobile-menu .mobile-menu-container .mobile-menu-item .menu-header-container h2:hover {
   color: #76bc21;
@@ -1156,9 +1158,9 @@ select {
   height: 16px;
   border-bottom: 2px solid white;
   border-left: 2px solid white;
-  -webkit-transform: rotate(-225deg);
-      -ms-transform: rotate(-225deg);
-          transform: rotate(-225deg);
+  -webkit-transform: rotate(var(--arrow-rotate));
+      -ms-transform: rotate(var(--arrow-rotate));
+          transform: rotate(var(--arrow-rotate));
 }
 .mobile-menu .mobile-menu-container .mobile-menu-item .menu-header-container::after {
   display: block;

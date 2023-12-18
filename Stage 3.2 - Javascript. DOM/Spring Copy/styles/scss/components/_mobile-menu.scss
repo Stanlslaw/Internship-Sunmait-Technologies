@@ -4,7 +4,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    overflow-y: scroll;
     background-color: #191e1e;
     .close-mobile-menu{
         display: flex;
@@ -21,7 +22,7 @@
     .mobile-menu-container{
         width: 100%;
         padding: 0rem 3rem;
-       
+      
         .mobile-menu-item{
             .menu-header-container{
                 cursor: pointer;
@@ -31,6 +32,7 @@
                     font-size: 2rem;
                     position: relative;
                     color: white;
+                    --arrow-rotate: -45deg;
                     &:hover{
                         color: #76bc21;
                     }
@@ -44,7 +46,7 @@
                         height: 16px;
                         border-bottom:2px solid white ;
                         border-left:2px solid white ;
-                        transform: rotate(-225deg);
+                        transform: rotate(var(--arrow-rotate));
                     }
                 }
                 &::after{
