@@ -1,0 +1,41 @@
+.footer{
+   
+    .footer-container{
+        .main-container{
+            .column-container{
+                .nav-column{
+                    .nav-column-container{
+                        .column{
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .more-container{
+            
+            .more-columns{
+                .main-column{
+
+                }
+                .social-link-column{
+                    a{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: black;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 20px;
+                        img{
+                           
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

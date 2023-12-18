@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring | Projects</title>
+    <link rel="stylesheet" href="./styles/css/main.css"/>
+    <link rel="icon" href="./icons/springio-icon.svg"/>
+</head>
+<body>
+    <div class="body-container">
+        <header class="header-container">
+            <nav class="top-nav">
+                <div class="top-nav-container">
+                    <div class="header-logo">
+                        <a href="#" class="header-logo-link">
+                           <img alt="spring logo" src="./icons/springio-ar21.svg"/>
+                        </a>
+                    </div>
+                    <div class="header-nav-menu">
+                        <div class="header-nav">
+                            <div class="header-nav-item">
+                                <span class="header-nav-item-link">
+                                    Why Spring
+                                </span>
+                                <ul class="header-nav-item-dropdown">
+                                    <li>Overview</li>
+                                    <li>Microservices</li>
+                                    <li>Reactive</li>
+                                    <li>Even Driven</li>
+                                    <li>Cloud</li>
+                                    <li>Web Applications</li>
+                                    <li>Serverless</li>
+                                    <li>Batch</li>
+                                </ul>
+                            </div>
+                            <div class="header-nav-item">
+                                <span class="header-item-link">
+                                    Learn
+                                </span>
+                                <ul class="header-nav-item-dropdown">
+                                    <li>Overview</li>
+                                    <li>Quickstart</li>
+                                    <li>Guides</li>
+                                    <li>Blog</li>
+                                </ul>
+                            </div>
+                            <div class="header-nav-item">
+                                <span class="header-item-link">
+                                    Projects
+                                </span>
+                                <ul class="header-nav-item-dropdown">
+                                    <li>Overview</li>
+                                    <li>Spring Boot</li>
+                                    <li>Spring Framework</li>
+                                    <li>Spring Cloud</li>
+                                    <li>Spring Cloud Data Flow</li>
+                                    <li>Spring Data</li>
+                                    <li>Spring Integration</li>
+                                    <li>Spring Batch</li>
+                                    <li>Spring Security</li>
+                                    <li>View all projects</li>
+                                    <li></li>
+                                    <li>DEVELOPMENT TOOLS</li>
+                                    <li>Spring Tools 4</li>
+                                    <li>Spring intializr</li>
+                                </ul>
+                            </div>
+                            <div class="header-nav-item">
+                                <span class="header-item-link">
+                                    Academy
+                                </span>
+                                <ul class="header-nav-item-dropdown">
+                                    <li>Courses</li>
+                                    <li>Get Certified</li>
+                                </ul>
+                            </div>
+                            <div class="header-nav-item">
+                                <span class="header-item-link">
+                                    Solutions
+                                </span>
+                                <ul class="header-nav-item-dropdown">
+                                    <li>Overview</li>
+                                    <li>Spring Runtime</li>
+                                    <li>Spring Consulting</li>
+                                    <li>Spring Academy For Teams</li>
+                                    <li>Spring Advisories</li>
+                                </ul>
+                            </div>
+                            <div class="header-nav-item">
+                                <span class="header-item-link">
+                                    Community
+                                </span>
+                                <ul class="header-nav-item-dropdown">
+                                    <li>Overview</li>
+                                    <li>Events</li>
+                                    <li>Team</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="theme-switcher">
+                            <label class="theme-switcher-container">
+                                <input class="theme-switcher-handle" type="checkbox">
+                                <span class="theme-switcher-image-circle">
+                                    <img class="theme-switcher-image"  alt="theme switcher icon" src="./icons/theme-switcher-sun.svg">
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <nav class="top-nav-mobile">
+                <div class="nav-mobile-container">
+                    <a class="logo-container">
+                        <img alt="logo" src="./icons/springio-ar21.svg"/>
+                    </a>
+                </div>
+                <div class="nav-burger-icon-container">
+                    <img alt="burger-menu" src="./icons/burger.svg"/>
+                </div>
+            </nav>  
+        </header>
+         <main class="main-projects">
+            <header class="main-header">
+                <div class="main-header-container">
+                    <h1 class="main-header-h">
+                        Projects
+                    </h1>
+                    <p class="main-header-desc">
+                        From configuration to security, web apps to big
+                        data—whatever the infrastructure needs of 
+                        your application may be, there is a Spring Project 
+                        to help you build it. Start small and 
+                        use just what you need—Spring is modular by design.
+                    </p>
+                    <div class="main-search-input-container">
+                        <input type="text" maxlength="24" class="main-header-search-input" id="search-projects-cards" placeholder="Введите тему проекта"/> 
+                    </div>
+                  
+                </div>
+            </header>
+            <section class="projects">
+                <div class="projects-container">
+                    <div class="projects-list" id="projects-list">
+                       <!-- <article class="project-card">
+                            <a class="card-container" href="#">
+                                <div class="card-image-container">
+                                    <img src="./icons/spring-boot.svg"/>
+                                </div>
+                                <h1 class="card-h">
+                                    Spring Boot
+                                </h1>
+                                <p class="card-desc">
+                                    Takes an opinionated view of building Spring applications and gets you up and running as quickly as possible.
+                                </p>
+                            </a>
+                       </article>
+                       <article class="project-card">
+                            <a class="card-container" href="#">
+                                 <div class="card-image-container">
+                                     <img src="./icons/spring-framework.svg"/>
+                                 </div>
+                                 <h1 class="card-h">
+                                    Spring Framework
+                                 </h1>
+                                 <p class="card-desc">
+                                    Provides core support for dependency injection, transaction management, web apps, data access, messaging, and more.
+                                 </p>
+                            </a>
+                        </article>
+                        <article class="project-card">
+                            <a class="card-container" href="#">
+                                <div class="card-image-container">
+                                    <img src="./icons/spring-data.svg"/>
+                                </div>
+                                <h1 class="card-h">
+                                    Spring Data
+                                </h1>
+                                <p class="card-desc">
+                                    Provides a consistent approach to data access – relational, non-relational, map-reduce, and beyond.
+                                </p>
+                            </a>
+                       </article>                       
+                       <article class="project-card">
+                            <a class="card-container" href="#">
+                                <div class="card-image-container">
+                                    <img src="./icons/spring-cloud.svg"/>
+                                </div>
+                                <h1 class="card-h">
+                                    Spring Cloud
+                                </h1>
+                                <p class="card-desc">
+                                    Provides a set of tools for common patterns in distributed systems. Useful for building and deploying microservices.
+                                </p>
+                            </a>
+                       </article>
+                        <article class="project-card">
+                            <a class="card-container" href="#">
+                                <div class="card-image-container">
+                                    <img src="./icons/spring-data-flow.svg"/>
+                                </div>
+                                <h1 class="card-h">
+                                    Spring Cloud Data Flow
+                                </h1>
+                                <p class="card-desc">
+                                    Provides an orchestration service for composable data microservice applications on modern runtimes.
+                                </p>
+                            </a>
+                       </article>
+                        <article class="project-card">
+                            <a class="card-container" href="#">
+                                <div class="card-image-container">
+                                    <img src="./icons/spring-security.svg"/>
+                                </div>
+                                <h1 class="card-h">
+                                    Spring Security
+                                </h1>
+                                <p class="card-desc">
+                                    Protects your application with comprehensive and extensible authentication and authorization support.
+                                </p>
+                            </a>
+                       </article> -->
+                    </div>
+                   
+                    <!-- <div class="projects-list-2">
+                        <h2 class="projects-list-2-h">
+                            Projects in the Attic
+                        </h2>
+                        <div class="projects-list-2-container">
+                            <article class="project-card">
+                                <a class="card-2-container" href="#">
+                                    <h1 class="card-2-h">
+                                        Spring IO Platform
+                                    </h1>
+                                    <p class="card-2-desc">
+                                        Provides a cohesive, versioned platform for building modern applications. It is a modular, enterprise-grade distribution that delivers a curated set of dependencies.
+                                    </p>
+                                </a>
+                            </article>
+                            <article class="project-card">
+                                <a class="card-2-container" href="#">
+                                    <h1 class="card-2-h">
+                                        Spring for Android
+                                    </h1>
+                                    <p class="card-2-desc">
+                                        Provides key Spring components for use in developing Android applications.                                    </p>
+                                </a>
+                            </article>
+                            <article class="project-card">
+                                <a class="card-2-container" href="#">
+                                    <h1 class="card-2-h">
+                                        Spring Flex
+                                    </h1>
+                                    <p class="card-2-desc">
+                                        A project to make it easier to build Spring-powered Rich Internet Applications using Adobe Flex as the front-end client.                                    </p>
+                                </a>
+                            </article>
+                            <article class="project-card">
+                                <a class="card-2-container" href="#">
+                                    <h1 class="card-2-h">
+                                        Spring Integration Groovy DSL
+                                    </h1>
+                                    <p class="card-2-desc">
+                                        A Groovy based DSL for developing Spring Integration applications.
+                                    </p>
+                                </a>
+                            </article>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- <section class="add-content">
+                    <div class="extra-elements">
+
+                    </div>
+                    <div class="add-content-section">
+                        <div class="add-content-container">
+                            <div class="add-content-column">
+                                <article class="add-content-column-item">
+                                    <h1>Get ahead</h1>
+                                    <p>VMware offers training and certification to turbo-charge your progress.</p>
+                                    <a>
+                                        Learn more
+                                    </a>
+                                </article>
+                                <article class="add-content-column-item">
+                                    <h1>Get support</h1>
+                                    <p>Tanzu Spring Runtime offers support and binaries for OpenJDK™, Spring, and Apache Tomcat® in one simple subscription.</p>
+                                    <a>
+                                        Learn more
+                                    </a>
+                                </article>
+                                <article class="add-content-column-item">
+                                    <h1>Upcoming events</h1>
+                                    <p>Check out all the upcoming events in the Spring community.</p>
+                                    <a>
+                                        View all
+                                    </a>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section> -->
+        
+        </main>
+        <!-- <footer class="footer">
+            <div class="footer-container">
+                <div class="main-container">
+                    <div class="column-container">
+                        <nav class="nav-column">
+                            <div class="nav-column-container">
+                                <div class="column">
+                                    <div class="item has-text-weight-bold">
+                                        <a href="/why-spring">Why Spring</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/microservices">Microservices</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/reactive">Reactive</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/event-driven">Event Driven</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/cloud">Cloud</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/web-applications">Web Applications</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/serverless">Serverless</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/batch">Batch</a>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="item has-text-weight-bold">
+                                        <a href="/learn">Learn</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/quickstart">Quickstart</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/guides" >Guides</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/blog">Blog</a>
+                                    </div>
+                                    <div class="item pt-4 has-text-weight-bold">
+                                        <a href="/community">Community</a>
+                                    </div><div class="item footer-link">
+                                        <a href="/events">Events</a>
+                                    </div><div class="item footer-link">
+                                        <a href="/team">Team</a>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="item has-text-weight-bold">
+                                        <a href="/overview">Solutions</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/support" >Tanzu Spring Runtime</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/consulting" >Spring Consulting</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="https://spring.academy/teams">Spring Academy For Teams</a>
+                                    </div>
+                                    <div class="item footer-link">
+                                        <a href="/security">Spring Advisories</a>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="item has-text-weight-bold">
+                                        <a aria-current="page" >Projects</a>
+                                    </div>
+                                    <div class="item has-text-weight-bold">
+                                        <a href="/training" ></a>Training</a>
+                                    </div>
+                                    <div class="item has-text-weight-bold mt-4">
+                                        <a href="/thank-you">Thank You</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                        <section class="promotions-column">
+
+                        </section>
+                    </div>
+                </div>
+                <div class="more-container">
+                    <div class="more-columns">
+                        <div class="main-column">
+                            <p>
+                                <img src="./icons/springio-ar21.svg" />
+                            </p>
+                            <p>
+                                Copyright © 2005 - 2023 Broadcom. All Rights Reserved.
+                                The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries. 
+                                <br>
+                                <a >Terms of Use</a> 
+                                • <a >Privacy</a> 
+                                • <a >Trademark Guidelines</a> 
+                                • <a >Your California Privacy Rights</a> 
+                                • <a >Cookie Settings</a>
+                            <p>
+                                Apache®, Apache Tomcat®, Apache Kafka®, Apache Cassandra™, and Apache Geode™ are trademarks or registered trademarks of the Apache Software Foundation in the United States and/or other countries. Java™, Java™ SE, Java™ EE, and OpenJDK™ are trademarks of Oracle and/or its affiliates. Kubernetes® is a registered trademark of the Linux Foundation in the United States and other countries. Linux® is the registered trademark of Linus Torvalds in the United States and other countries. Windows® and Microsoft® Azure are registered trademarks of Microsoft Corporation. “AWS” and “Amazon Web Services” are trademarks or registered trademarks of Amazon.com Inc. or its affiliates. All other trademarks and copyrights are property of their respective owners and are only mentioned for informative purposes. Other names may be trademarks of their respective owners.
+                            </p>
+                        </div>
+                        <div class="social-link-column">
+                            <a>
+                                <img src="./icons/youtube.svg"/>
+                            </a>
+                            <a>
+                                <img src="./icons/github.svg"/>
+                            </a>
+                            <a>
+                                <img src="./icons/twitter.svg"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>  -->
+    </div> 
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
