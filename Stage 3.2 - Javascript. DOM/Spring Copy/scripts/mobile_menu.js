@@ -71,16 +71,15 @@ function CreateMobileMenuItem(itemData,index){
             <h2 itemId="${index}">${itemData.header}</h2>
          </div>
         <ul class="menu-body" style="display: none;" itemId="${index}">
-           ${itemData.sub.map(el=>`<li>${el}</li>`)}
+           ${itemData.sub.map(el=>`<li>${el}</li>`).join('')}
         </ul>
         </div>
     `)
 }
 function OpenCloseMenuItem(e){
-    e.stopPropagation()
-   let headerAfter=e.currentTarget.querySelector("h2")
-   let body=e.currentTarget.parentNode.querySelector(".menu-body");
-   let itemId= headerAfter.getAttribute("itemId");
+   const headerAfter=e.currentTarget.querySelector("h2")
+   const body=e.currentTarget.parentNode.querySelector(".menu-body");
+   const itemId= headerAfter.getAttribute("itemId");
    if(!OpenMenuItems.includes(itemId)){
     headerAfter.style.setProperty('--arrow-rotate', '-225deg');
     body.style.display="block"
