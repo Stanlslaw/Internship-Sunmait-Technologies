@@ -93,10 +93,16 @@ function OpenCloseMenuItem(e){
    
 }
 CreateMobileMenu(MenuData);
-closeMenuButton.addEventListener("click",()=>{
-    mobileMenu.style.display="none"
-})
 
-openMenuButton.addEventListener("click",()=>{
-    mobileMenu.style.display="block"
-})
+const closeMenuHandler = () => {
+    mobileMenu.style.display = "none";
+    openMenuButton.addEventListener("click", openMenuHandler);
+    closeMenuButton.removeEventListener("click", closeMenuHandler);
+};
+
+const openMenuHandler = () => {
+    mobileMenu.style.display = "block";
+    openMenuButton.removeEventListener("click", openMenuHandler);
+    closeMenuButton.addEventListener("click", closeMenuHandler);
+};
+openMenuButton.addEventListener("click", openMenuHandler);
