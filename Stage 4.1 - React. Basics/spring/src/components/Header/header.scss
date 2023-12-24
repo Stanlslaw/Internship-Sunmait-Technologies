@@ -17,6 +17,7 @@
                 max-width: 900px;
             }
             .header-logo{
+                cursor: pointer;
                 padding: 0.5rem 0.75rem;
                 .header-logo-link{
                     width: 300px;
@@ -41,7 +42,7 @@
                         span{
                             display: flex;
                             white-space: nowrap;
-                           
+                            cursor: pointer;
                             align-items: center;
                             height: 100%;
                             vertical-align: middle;

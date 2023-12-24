@@ -40,4 +40,74 @@ const CardsData =
 
     ]
 
-export {CardsData}
+    const MenuData=[
+        {
+            header: "Why Spring",
+            sub:[
+                "Overview",
+                "Microservices",
+                "Reactive",
+                "Even Driven",
+                "Cloud",
+                "Web Applications",
+                "Serverless",
+                "Batch",
+            ]
+        },
+        {
+            header: "Learn",
+            sub:[
+                "Overview",
+                "Quickstart",
+                "Guides",
+                "Blog",
+            ]
+        },
+        {
+            header: "Projects",
+            sub:[
+                "Overview",
+                "Spring Boot",
+                "Spring Framework",
+                "Spring Cloud",
+                "Spring Cloud Data Flow",
+                "Spring Data",
+                "Spring Integration",
+                "Spring Batch",
+                "Spring Security",
+                "View all projects",
+                "",
+                "DEVELOPMENT TOOLS",
+                "Spring Tools 4",
+                "Spring intializr",
+            ]
+        },
+        {
+            header: "Academy",
+            sub:[
+                "Courses",
+                "Get Certified",
+            ]
+        },
+        {
+            header: "Solutions",
+            sub:[
+                "Overview",
+                "Spring Runtime",
+                "Spring Consulting",
+                "Spring Academy For Teams",
+                "Spring Advisories",
+            ]
+        },
+        {
+            header: "Community",
+            sub:[
+                "Overview",
+                "Events",
+                "Team"
+            ]
+        }
+    ]
+    
+
+export {CardsData,MenuData}
