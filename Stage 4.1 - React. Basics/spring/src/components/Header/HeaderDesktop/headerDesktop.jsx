@@ -2,7 +2,13 @@ import logo from "./icons/springio-ar21.svg"
 import themeSwithcerIcon from "./icons/theme-switcher-sun.svg"
 
 import HeaderNavItem from "./HeaderNavItem/headerNavItem.jsx"
+import { useMemo } from "react"
 export default function HeaderDesktop(props){
+    const menuItems=useMemo(()=>{
+        return   props.menuData.map((item,key)=>{
+            return <HeaderNavItem key={key} header={item.header} sub={item.sub}></HeaderNavItem>
+        })
+    },[props.menuData])
     return (
         <nav className="top-nav">
             <div className="top-nav-container">
@@ -13,9 +19,7 @@ export default function HeaderDesktop(props){
                 </div>
                 <div className="header-nav-menu">
                     <div className="header-nav">
-                        {props.menuData.map((item,key)=>{
-                            return <HeaderNavItem key={key} header={item.header} sub={item.sub}></HeaderNavItem>
-                        })}
+                        {menuItems}
                     </div>
                 <div className="theme-switcher">
                     <label className="theme-switcher-container">

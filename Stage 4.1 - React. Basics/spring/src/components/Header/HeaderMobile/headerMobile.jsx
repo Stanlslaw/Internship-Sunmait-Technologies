@@ -4,11 +4,15 @@ import burgerIcon from "./icons/burger.svg"
 import "./header-mobile.scss"
 import "./mobile-menu.scss"
 import MobileMenuItem from "./MobileMenutem/mobileMenuItem.jsx"
-import { useState } from "react"
+import { useMemo, useState } from "react"
 
 export default function HeaderMobile(props){
     const [IsOpen,setIsOpen] = useState(false);
-
+    const menuItems = useMemo(()=>{
+        return props.menuData.map((item,key)=>{
+            return <MobileMenuItem key={key} header={item.header} sub={item.sub}></MobileMenuItem>
+        })
+    },[props.menuData])
     const MenuIsOpenHandler = ()=>{
         setIsOpen(!IsOpen);
     }
@@ -29,9 +33,7 @@ export default function HeaderMobile(props){
                 <img onClick={MenuIsOpenHandler} alt="close" src={crossIcon}/>
             </div>
             <div className="mobile-menu-container">
-                {props.menuData.map((item,key)=>{
-                    return <MobileMenuItem key={key} header={item.header} sub={item.sub}></MobileMenuItem>
-                })}
+                {menuItems}
             </div>
         </div>}
     </nav>  
