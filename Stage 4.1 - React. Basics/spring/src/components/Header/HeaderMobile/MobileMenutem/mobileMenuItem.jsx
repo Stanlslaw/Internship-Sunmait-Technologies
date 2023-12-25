@@ -26,8 +26,8 @@ export default function MobileMenuItem(props){
                 {display:"block"}
                 :
                 {display:"none"}}>
-                {props.sub.map(item=>{
-                    return <li>{item}</li>
+                {props.sub.map((item,key)=>{
+                    return <li key={key}>{item}</li>
                 })}
             </ul>
         </div>

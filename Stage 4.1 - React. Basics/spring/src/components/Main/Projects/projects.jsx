@@ -9,8 +9,8 @@ export default function Projects(props){
                 <div className="projects-list">
                 {props.cardsData.length!==0
                 ?
-                    props.cardsData.map(data=>{
-                        return <Card header={data.cardHeader} description={data.cardDescription} image={data.cardImage}/>
+                    props.cardsData.map((data,key)=>{
+                        return <Card key={key} header={data.cardHeader} description={data.cardDescription} image={data.cardImage}/>
                     })
                 :
                     <h2 style={{textAlign: "center",width:"100%",fontFamily:"'Open Sans',sans-serif"}}>No results</h2>

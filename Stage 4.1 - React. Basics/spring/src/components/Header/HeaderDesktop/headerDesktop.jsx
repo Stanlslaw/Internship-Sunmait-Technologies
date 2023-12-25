@@ -13,8 +13,8 @@ export default function HeaderDesktop(props){
                 </div>
                 <div className="header-nav-menu">
                     <div className="header-nav">
-                        {props.menuData.map(item=>{
-                            return <HeaderNavItem header={item.header} sub={item.sub}></HeaderNavItem>
+                        {props.menuData.map((item,key)=>{
+                            return <HeaderNavItem key={key} header={item.header} sub={item.sub}></HeaderNavItem>
                         })}
                     </div>
                 <div className="theme-switcher">

@@ -29,8 +29,8 @@ export default function HeaderMobile(props){
                 <img onClick={MenuIsOpenHandler} alt="close" src={crossIcon}/>
             </div>
             <div className="mobile-menu-container">
-                {props.menuData.map(item=>{
-                    return <MobileMenuItem header={item.header} sub={item.sub}></MobileMenuItem>
+                {props.menuData.map((item,key)=>{
+                    return <MobileMenuItem key={key} header={item.header} sub={item.sub}></MobileMenuItem>
                 })}
             </div>
         </div>}

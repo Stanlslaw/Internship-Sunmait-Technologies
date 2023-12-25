@@ -7,8 +7,8 @@ export default function HeaderNavItem(props){
            {props.header}
         </span>
         <ul className="header-nav-item-dropdown">
-          {props.sub.map(item=>{
-            return <li>{item}</li>
+          {props.sub.map((item,key)=>{
+            return <li key={key}>{item}</li>
           })}
         </ul>
          </div>

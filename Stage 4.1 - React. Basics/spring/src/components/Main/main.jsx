@@ -1,23 +1,27 @@
 import "./main.scss"
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import Projects from "./Projects/projects.jsx"
 import MainHeader from "./MainHeader/mainHeader.jsx"
 import { CardsData } from "../../api/db.js"
 
 export default function Main(props){
     const [searchState,setSearchState] = useState("");
-    const searchHandler=(searchState)=>{
-        setSearchState(searchState);
-    }
     const DataHandler=(data,search)=>{
         return data.filter(el=>{
             return  el.cardHeader.toLowerCase().includes(search.toLowerCase())
         })
     }
+    const filteredCardsData=useMemo(()=>{
+        return  DataHandler(CardsData,searchState)
+    },[searchState,CardsData])
+    const searchHandler=(searchState)=>{
+        setSearchState(searchState);
+    }
+   
     return (
         <main className="main-projects">
             <MainHeader searchHandler={searchHandler}></MainHeader>
-            <Projects cardsData={DataHandler(CardsData,searchState)} searchState={searchState}></Projects>
+            <Projects cardsData={filteredCardsData} searchState={searchState}></Projects>
         </main>
     )
 }
