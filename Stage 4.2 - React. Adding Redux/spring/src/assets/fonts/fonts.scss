@@ -1,0 +1,13 @@
+@import "../fonts/metropolis.scss";
+@import "../fonts/open-sans.scss";
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url(../fonts/Metropolis/Metropolisbold.ttf) format('truetype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Metropolis';
+    src: url(../fonts/Metropolis/Metropolis.ttf) format('truetype');
+    font-weight: 300;
+}

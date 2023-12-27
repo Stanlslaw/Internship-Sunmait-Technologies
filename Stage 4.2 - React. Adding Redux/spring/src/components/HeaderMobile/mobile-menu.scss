@@ -1,0 +1,80 @@
+.mobile-menu{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: #191e1e;
+    .close-mobile-menu{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: row;
+        padding: 1rem;
+        img{
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+        }
+    }
+    .mobile-menu-container{
+        width: 100%;
+        padding: 0rem 3rem;
+      
+        .mobile-menu-item{
+            .menu-header-container{
+                cursor: pointer;
+                h2{
+                    font-family: Metropolis;
+                    font-weight: 400;
+                    font-size: 2rem;
+                    position: relative;
+                    color: white;
+                    --arrow-rotate: 135deg;
+                    &:hover{
+                        color: #76bc21;
+                    }
+                    &::after{
+                        display: block;
+                        content: "";
+                        position: absolute;
+                        top: 24px;
+                        right: 4px;
+                        width: 16px;
+                        height: 16px;
+                        border-bottom:2px solid white ;
+                        border-left:2px solid white ;
+                        transform: rotate(var(--arrow-rotate));
+                    }
+                }
+                &::after{
+                    display: block;
+                    content: "";
+                    margin-top: .5rem;
+                    width: 100%;
+                    height: 1px;
+                    background-color: white;
+                }
+            }
+            ul.menu-body{
+                all:unset;
+                display: none;
+                padding: 1rem 0;
+                li{
+                    cursor: pointer;
+                    font-family: Metropolis;
+                    font-weight: 500;
+                    font-size: 1.2rem;
+                    list-style-type: none;
+                    color: #777d7d;
+                    &:hover{
+                        color: #76bc21;
+                    }
+                }
+            }
+        }
+    }
+   
+}
