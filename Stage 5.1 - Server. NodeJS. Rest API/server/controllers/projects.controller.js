@@ -3,8 +3,8 @@ class Projects {
   constructor() {}
   async GetProjects(req, res) {
     try {
-      const { searchString } = req.body;
-      if (!searchString) {
+      const { search } = req.query;
+      if (!search) {
         res.json({
           CardsData: CardsData,
         });
@@ -12,9 +12,7 @@ class Projects {
       }
       res.json({
         CardsData: CardsData.filter((el) => {
-          return el.cardHeader
-            .toLowerCase()
-            .includes(searchString.toLowerCase());
+          return el.cardHeader.toLowerCase().includes(search.toLowerCase());
         }),
       });
     } catch (err) {

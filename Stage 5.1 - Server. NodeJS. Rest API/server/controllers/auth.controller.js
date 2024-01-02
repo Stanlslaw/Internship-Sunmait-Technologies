@@ -5,6 +5,7 @@ class Auth {
     try {
       const { username, password } = req.body;
       if (username === "admin" || password === "1234") {
+        console.log("dwdw");
         res.json({
           authenticated: true,
           message: "Success",
@@ -12,10 +13,12 @@ class Auth {
         return;
       }
       res.json({
+        authenticated: false,
         message: "Incorrect username or password",
       });
     } catch (err) {
       res.json({
+        authenticated: false,
         message: err.message,
       });
     }
