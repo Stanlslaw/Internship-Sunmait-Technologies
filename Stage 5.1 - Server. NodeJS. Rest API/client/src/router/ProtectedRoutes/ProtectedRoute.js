@@ -6,7 +6,6 @@ import { selectUser } from "../../redux/slices/auth.slice.js";
 
 const ProtectedRoute = ({ children, redirectTo = "/login" }) => {
   const isAuth = useSelector(selectUser);
-  console.log(isAuth);
   if (isAuth) {
     return children;
   } else {
