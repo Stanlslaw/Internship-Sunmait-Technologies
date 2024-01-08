@@ -1,34 +1,32 @@
 import React, {useState} from "react";
 import { Button, Form, Input } from "antd";
-import { useDispatch } from "react-redux";
-import {Link,useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import { useIsGetAuthMutation } from "../../redux/slices/auth.query.js";
-import { login } from "../../redux/slices/auth.slice.js";
+import {useRegisterMutation} from "../../redux/slices/auth.query";
 
-import "./login.scss";
+import "./register.scss";
 
-export default function Login() {
-  const dispatcher = useDispatch();
-  const navigate = useNavigate();
-  const [isGetAuth] = useIsGetAuthMutation();
+
+export default function Register() {
+  //const navigate = useNavigate();
+  const [register]  = useRegisterMutation();
   const [formMessage,setFormMessage] = useState(null);
 
+
   const onFinish = async (values) => {
-    const { data } = await isGetAuth({
-      username: values.username,
-      password: values.password,
+    const {data} = await register({
+        username: values.username,
+        password: values.password,
+        age: values.age
     });
-    console.log(data);
     if(data.token){
-      dispatcher(login(data.token));
-      navigate("/");
+        console.log(data);
     }
     else{
-      setFormMessage(data.message)
+        setFormMessage(data.message);
     }
-
-
+    console.log(data);
+   // navigate("/");
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -38,7 +36,7 @@ export default function Login() {
       <Form
         name="basic"
         labelCol={{
-          span: 8,
+          span: 10,
         }}
         wrapperCol={{
           span: 16,
@@ -65,23 +63,39 @@ export default function Login() {
         </Form.Item>
 
         <Form.Item
-          label="Password"
-          name="password"
-          rules={[
-            {
-              required: true,
-              message: "Please input your password!",
-            },
-          ]}>
+            label="Age"
+            name="age"
+            rules={[
+              {
+                required: true,
+                message: "Please input your age!",
+              },
+            ]}>
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+            label="Password"
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: "Please input your password!",
+              },
+            ]}>
           <Input.Password />
         </Form.Item>
 
         <Form.Item
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}>
-          Login or <Link to={"/register"}>Register</Link>
+          label="Password repeat"
+          name="password_confirm"
+          rules={[
+            {
+              required: true,
+              message: "Please repeat your password!",
+            },
+          ]}>
+          <Input.Password />
         </Form.Item>
 
         <Form.Item
@@ -89,8 +103,16 @@ export default function Login() {
               offset: 8,
               span: 16,
             }}>
-            <p style={{color: "red"}}>{formMessage}</p>
+          Register or <Link to={"/login"}>login</Link>
         </Form.Item>
+
+          <Form.Item
+              wrapperCol={{
+                  offset: 8,
+                  span: 16,
+              }}>
+              <p style={{color: "red"}}>{formMessage}</p>
+          </Form.Item>
 
         <Form.Item
           wrapperCol={{

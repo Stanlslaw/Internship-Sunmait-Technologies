@@ -7,15 +7,24 @@ export const authApi = createApi({
   }),
   endpoints: (builder) => ({
     isGetAuth: builder.mutation({
-      query: (user) => {
+      query: (arg) => {
         return {
           url: `login`,
           method: "POST",
-          body: user,
+          body: arg,
         };
       },
     }),
+    register: builder.mutation({
+      query: (arg)=> {
+        return{
+          url: `register`,
+          method: "POST",
+          body: arg
+        }
+      }
+    })
   }),
 });
 
-export const { useIsGetAuthMutation } = authApi;
+export const { useIsGetAuthMutation, useRegisterMutation } = authApi;

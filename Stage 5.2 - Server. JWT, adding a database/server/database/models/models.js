@@ -25,6 +25,7 @@ try{
     await CardsData.forEach(async (item)=>{
         await Cards.create(item)
     })
+    await Users.create({username: "admin", password: "1234a"})
     console.log('Database schema synchronized');
 }
 catch(error){

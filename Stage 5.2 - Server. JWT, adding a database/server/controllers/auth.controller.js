@@ -19,12 +19,12 @@ class Auth {
             })
             return;
           }
-          res.status(401).json({
+          res.status(200).json({
             message: "Incorrect password"
           })
       }
       else{
-        res.status(404).json({
+        res.status(200).json({
           message: "User is not signed up"
         })
       }
@@ -48,13 +48,13 @@ class Auth {
           password.length>=4&&
           /\d/.test(password)&&
           /[a-zA-Z]/.test(password))){
-        res.status(403).json({
+        res.status(200).json({
           message: "The password has incorrect syntax, try again"
         })
         return
       }
       if(isNaN(age)||age===''||age<=0){
-        res.status(403).json({
+        res.status(200).json({
           message: "The age has incorrect syntax, try again"
         })
         return
@@ -67,7 +67,7 @@ class Auth {
       })
     }
     catch (err){
-      res.json({
+      res.status(200).json({
         message: err.message,
       });
     }
