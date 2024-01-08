@@ -3,12 +3,14 @@ import db, {CardsData} from "./database/db.js"
 import cors from "cors";
 import AuthRoute from "./routes/auth.route.js";
 import ProjectsRoute from "./routes/projects.route.js";
+import cookieParser from "cookie-parser";
 import {Cards, Users} from "./database/models/models.js";
 
 const app = express();
 
 
 app.use(cors());
+app.use(cookieParser())
 app.use(express.json());
 
 app.use("/api", AuthRoute);

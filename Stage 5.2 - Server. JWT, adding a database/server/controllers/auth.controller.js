@@ -1,7 +1,6 @@
 import {Users} from "../database/models/models.js";
-import {where} from "sequelize";
-import jwt from "jsonwebtoken"
-import config from "../configs/jwt.config.js"
+import TokenService from "../service/token.service.js";
+
 
 class Auth {
   constructor() {}
@@ -12,11 +11,13 @@ class Auth {
       let user = await Users.findOne({where: {username: username}});
       if(user){
           if(user.password===password){
+
+            let tokens = await TokenService.generateToken({username: username})
+            res.cookie('refreshToken', tokens.refresh_token,{maxAge: 7*24*60*60*1000})
             res.status(200).json({
-                token: jwt.sign({
-                  username: username
-                },config.jwt_key,{expiresIn: 60*60})
+              token: tokens.access_token
             })
+
             return;
           }
           res.status(200).json({
@@ -60,10 +61,10 @@ class Auth {
         return
       }
       await Users.create({username: username,password: password})
+      let tokens = await TokenService.generateToken({username: username})
+      res.cookie('refreshToken', tokens.refresh_token,{maxAge: 7*24*60*60*1000})
       res.status(200).json({
-        token: jwt.sign({
-          username: username
-        },config.jwt_key,{expiresIn: 60*60})
+        token: tokens.access_token
       })
     }
     catch (err){
@@ -72,6 +73,16 @@ class Auth {
       });
     }
   }
-}
 
+  async refresh(req,res){
+    try{
+
+    }
+    catch (err){
+      res.status(200).json({
+        message: err.message
+      })
+    }
+  }
+}
 export default new Auth();

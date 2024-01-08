@@ -1,32 +1,32 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Button, Form, Input } from "antd";
-import {Link} from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
-import {useRegisterMutation} from "../../redux/slices/auth.query";
+import { useRegisterMutation } from "../../redux/slices/auth.query";
+import { login } from "../../redux/slices/auth.slice";
 
 import "./register.scss";
 
-
 export default function Register() {
-  //const navigate = useNavigate();
-  const [register]  = useRegisterMutation();
-  const [formMessage,setFormMessage] = useState(null);
-
+  const navigate = useNavigate();
+  const dispatcher = useDispatch();
+  const [register] = useRegisterMutation();
+  const [formMessage, setFormMessage] = useState(null);
 
   const onFinish = async (values) => {
-    const {data} = await register({
-        username: values.username,
-        password: values.password,
-        age: values.age
+    const { data } = await register({
+      username: values.username,
+      password: values.password,
+      age: values.age,
     });
-    if(data.token){
-        console.log(data);
+    if (data.token) {
+      console.log(data);
+      dispatcher(login(data.token));
+      navigate("/");
+    } else {
+      setFormMessage(data.message);
     }
-    else{
-        setFormMessage(data.message);
-    }
-    console.log(data);
-   // navigate("/");
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -63,26 +63,26 @@ export default function Register() {
         </Form.Item>
 
         <Form.Item
-            label="Age"
-            name="age"
-            rules={[
-              {
-                required: true,
-                message: "Please input your age!",
-              },
-            ]}>
+          label="Age"
+          name="age"
+          rules={[
+            {
+              required: true,
+              message: "Please input your age!",
+            },
+          ]}>
           <Input />
         </Form.Item>
 
         <Form.Item
-            label="Password"
-            name="password"
-            rules={[
-              {
-                required: true,
-                message: "Please input your password!",
-              },
-            ]}>
+          label="Password"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+            },
+          ]}>
           <Input.Password />
         </Form.Item>
 
@@ -99,20 +99,20 @@ export default function Register() {
         </Form.Item>
 
         <Form.Item
-            wrapperCol={{
-              offset: 8,
-              span: 16,
-            }}>
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}>
           Register or <Link to={"/login"}>login</Link>
         </Form.Item>
 
-          <Form.Item
-              wrapperCol={{
-                  offset: 8,
-                  span: 16,
-              }}>
-              <p style={{color: "red"}}>{formMessage}</p>
-          </Form.Item>
+        <Form.Item
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}>
+          <p style={{ color: "red" }}>{formMessage}</p>
+        </Form.Item>
 
         <Form.Item
           wrapperCol={{
