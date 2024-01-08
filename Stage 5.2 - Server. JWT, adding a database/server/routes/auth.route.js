@@ -5,5 +5,6 @@ const router = Router();
 const commonPath = "auth";
 
 router.post(`/${commonPath}/login`, Auth.login);
+router.post(`/${commonPath}/register`,Auth.register)
 
 export default router;

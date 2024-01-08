@@ -1,0 +1,14 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "springDB",
+      "username": "postgres",
+      "database": "spring",
+      "password": "Admin1234"
+    }
+  ]
+}
