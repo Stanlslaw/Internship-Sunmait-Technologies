@@ -2,6 +2,6 @@ import axios from "axios";
 
 class TikcetsApi {
   constructor() {}
-  async GetData() {}
-  async CreateData() {}
+  async getData() {}
+  async createData() {}
 }

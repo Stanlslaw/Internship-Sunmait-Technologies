@@ -1,14 +1,13 @@
-import { Genders } from "../enums";
 export interface Ticket {
-  key: string | number;
+  key: string;
   userFirstName: string;
   userLastName: string;
-  userGender: Genders | string;
+  userGender: "Male" | "Female";
   userEmail: string;
   userPhone: string;
   wayFrom: string;
   wayTo: string;
-  luggages: Luggage[] | null;
+  luggages: Luggage[] | undefined;
 }
 
 export interface Luggage {
