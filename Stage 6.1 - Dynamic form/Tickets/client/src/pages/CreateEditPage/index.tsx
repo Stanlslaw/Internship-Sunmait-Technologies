@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Button, Form, FormRule, Input, Radio, Select, Space } from "antd";
 import { DefaultOptionType } from "antd/es/select";
-import { array, object, ObjectSchema, ref, string } from "yup";
+import { array, object, ObjectSchema, oneOf, ref, string } from "yup";
 
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 
@@ -18,54 +18,55 @@ const wayOptions: DefaultOptionType[] = [
   { label: "Mogilev", value: "Mogilev" },
 ];
 
-const validationSchema: ObjectSchema<Ticket> = object().shape({
-  key: string()
-    .typeError("This field must be a string")
-    .required("This field is required"),
-  userFirstName: string()
-    .typeError("This field must be a string")
-    .matches(new RegExp(/^[a-zA-Z]+$/), "Only latin alphabet")
-    .min(2, "Min length 2 symbols")
-    .max(32, "Max length 32 symbols")
-    .required("This field is required"),
-  userLastName: string()
-    .typeError("This field must be a string")
-    .matches(new RegExp(/^[a-zA-Z]+$/), "Only latin alphabet")
-    .min(2, "Min length 2 symbols")
-    .max(48, "Max length 48 symbols")
-    .required("This field is required"),
-  userGender: string<"Male" | "Female">().required(),
-  userEmail: string()
-    .typeError("This field must be a string")
-    .email("It is not email")
-    .required("This field is required"),
-  userPhone: string()
-    .typeError("This field must be a string")
-    .matches(
-      new RegExp(/^\+375(17|25|29|33|44)\d{7}$/),
-      "Type Belarusian number like: +375293331122"
-    )
-    .required("This field is required"),
-  wayFrom: string()
-    .notOneOf([ref("wayTo")], "Change town, they are equal")
-    .required("This field is required"),
-  wayTo: string()
-    .notOneOf([ref("wayFrom")], "Change town, they are equal")
-    .required("This field is required"),
-  luggages: array().of(new ObjectSchema<Luggage>()),
-});
-
-const yupSync: FormRule = {
-  async validator(rule, value) {
-    console.log(rule, value);
-    return await validationSchema.validateSyncAt(rule.field, {
-      [rule.field]: value,
-    });
-  },
-};
-
 const CreateEditPage: FC = () => {
   const [form] = Form.useForm();
+  const wayFrom = Form.useWatch("wayFrom", form);
+  const validationSchema: ObjectSchema<Ticket> = object().shape({
+    key: string()
+      .typeError("This field must be a string")
+      .required("This field is required"),
+    userFirstName: string()
+      .typeError("This field must be a string")
+      .matches(new RegExp(/^[a-zA-Z]+$/), "Only latin alphabet")
+      .min(2, "Min length 2 symbols")
+      .max(32, "Max length 32 symbols")
+      .required("This field is required"),
+    userLastName: string()
+      .typeError("This field must be a string")
+      .matches(new RegExp(/^[a-zA-Z]+$/), "Only latin alphabet")
+      .min(2, "Min length 2 symbols")
+      .max(48, "Max length 48 symbols")
+      .required("This field is required"),
+    userGender: string<"Male" | "Female">().required(),
+    userEmail: string()
+      .typeError("This field must be a string")
+      .email("It is not email")
+      .required("This field is required"),
+    userPhone: string()
+      .typeError("This field must be a string")
+      .matches(
+        new RegExp(/^\+375(17|25|29|33|44)\d{7}$/),
+        "Type Belarusian number like: +375293331122"
+      )
+      .required("This field is required"),
+    wayFrom: string().required("This field is required"),
+    wayTo: string()
+      .required("This field is required")
+      .test("not-same-as-wayFrom", "Towns can't be the same", function (value) {
+        console.log(value);
+        return wayFrom !== value;
+      }),
+    luggages: array().of(new ObjectSchema<Luggage>()),
+  });
+
+  const yupSync: FormRule = {
+    async validator(rule, value) {
+      console.log(rule, value);
+      return await validationSchema.validateSyncAt(rule.field, {
+        [rule.field]: value,
+      });
+    },
+  };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function OnFinish(values: any): void {
     console.log(values);
